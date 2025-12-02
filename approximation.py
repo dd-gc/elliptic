@@ -5,7 +5,7 @@ from matplotlib import pylab as plt
 
 if __name__ == '__main__':
   
-    if True:
+    if False:
         x = np.linspace(0.0, 2.0)
         N = 3
         u = np.arccos(x.astype(complex))

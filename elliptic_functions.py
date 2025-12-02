@@ -241,7 +241,10 @@ def acde(w, k, M=None):
     # Since Re(u) > 0, 0<Re(u)<2, and -R<Im(u)<R
     K, Kp = ellipk2(k)
     R = Kp / K
-    u = sym_fmod(np.real(u), 4) + 1j * sym_fmod(np.imag(u), 2*R)
+    # We changed the sign on the imaginary part so that as w goes from zero to
+    # infinity, u maps from C to S to N to D.  Note that from N to D, imag(u)
+    # alternates between +/-R due to roundoff.
+    u = sym_fmod(np.real(u), 4) - 1j * sym_fmod(np.imag(u), 2*R)
 
     return u
 
